@@ -1,6 +1,7 @@
 plugins {
     id("java")
     id("application")
+    id("checkstyle")
     id("com.github.ben-manes.versions") version "0.53.0"
 }
 
@@ -14,10 +15,15 @@ repositories {
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+    implementation("info.picocli:picocli:4.7.3")
 }
 application {
     mainClass.set("hexlet.code.App")
 }
 tasks.test {
     useJUnitPlatform()
+}
+
+checkstyle {
+    toolVersion = "10.12.4"
 }
