@@ -23,7 +23,9 @@ jobs:
           distribution: 'temurin'
 
       - name: Build project with Gradle
+        working-directory: app
         run: ./gradlew build
 
       - name: Run Checkstyle
+        working-directory: app
         run: ./gradlew checkstyleMain checkstyleTest
